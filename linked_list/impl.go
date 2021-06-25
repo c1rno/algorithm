@@ -5,7 +5,8 @@ package linked_list
 type Node struct {
 	// left, right
 	l, r *Node
-	data int
+	// string using in calculator
+	data string
 }
 
 type List struct {
@@ -26,7 +27,7 @@ func New() *List {
 	return new(List)
 }
 
-func (h *List) Push(d int) {
+func (h *List) Push(d string) {
 	n := &Node{data: d}
 
 	if h.h == nil {
@@ -44,9 +45,9 @@ func (h *List) Push(d int) {
 	h.t = n
 }
 
-func (h *List) Pop() int {
+func (h *List) Pop() string {
 	if h.t == nil {
-		return 0
+		return ""
 	}
 
 	n := h.t
@@ -58,7 +59,7 @@ func (h *List) Pop() int {
 	return n.data
 }
 
-func (h *List) Queue(d int) {
+func (h *List) Queue(d string) {
 	n := &Node{data: d}
 
 	if h.h == nil {
@@ -77,9 +78,9 @@ func (h *List) Queue(d int) {
 
 }
 
-func (h *List) Dequeue() int {
+func (h *List) Dequeue() string {
 	if h.h == nil {
-		return 0
+		return ""
 	}
 
 	n := h.h
